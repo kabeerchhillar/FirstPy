@@ -4,6 +4,7 @@ bookLIST = [line.rstrip() for line in rFile]
 print bookLIST
 rFile.close()
 
+
 myFile = open("books.txt","a")
 
 def input_destinations(user_input):
@@ -45,19 +46,24 @@ def input_destinations(user_input):
             splitStr = book.split(", ")
             if year == splitStr[1]:
                 print splitStr[0]
-
+    elif user_input == "7":
+        bookname = str(raw_input("enter the book"))
+        for book in bookLIST:
+            splitStr = book.split(", ")
+            if bookname == splitStr[0]:
+                print splitStr[1]
 def main():
     main_input = 0
 
-    while main_input != 7:
-        print("What do you  like to do \n 1. Add a Name\n 2. find a name \n 3. print the list \n 4. delete a name \n 5. Find book with substring \n 6. find year of publishment \n 7.exit")
+    while main_input != 8:
+        print("What do you  like to do \n 1. Add a Name\n 2. find a name \n 3. print the list \n 4. delete a name \n 5. Find book with substring \n 6. find book using year \n 7. find year of publishment \n 8.exit")
         main_input = input(": ")
 
         # print(type(main_input))
         input_destinations(str(main_input))
 
     myFile.close()
-    return;
+    return
 
 
 if __name__ == '__main__':
