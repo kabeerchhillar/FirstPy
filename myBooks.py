@@ -1,3 +1,4 @@
+
 rFile = open("books.txt", "r")
 #bookLIST = rFile.readlines()
 bookLIST = [line.rstrip() for line in rFile]
@@ -52,11 +53,38 @@ def input_destinations(user_input):
             splitStr = book.split(", ")
             if bookname == splitStr[0]:
                 print splitStr[1]
+    elif user_input == "8":
+        it = str(raw_input("enter the name"))
+        for book in bookLIST:
+            splitStr = book.split(", ")
+            if it == splitStr[0]:
+                print splitStr[2]
+    elif user_input == "9":
+        h = str(raw_input("enter the name"))
+        for book in bookLIST:
+            splitStr = book.split(", ")
+            if h == splitStr[0]:
+                if splitStr[3] == "yes":
+                    print "I have read the Book"
+                else:
+                    print "I have not read the Book"
+
+
 def main():
     main_input = 0
 
-    while main_input != 8:
-        print("What do you  like to do \n 1. Add a Name\n 2. find a name \n 3. print the list \n 4. delete a name \n 5. Find book with substring \n 6. find book using year \n 7. find year of publishment \n 8.exit")
+    while main_input != 10:
+        print("What do you  like to do \n "
+              "                           1. Add a Name\n "
+              "                           2. find a name \n "
+              "                           3. print the list \n "
+              "                           4. delete a name \n "
+              "                           5. Find book with substring \n "
+              "                           6. find book using year \n "
+              "                           7. find year of publishment \n "
+              "                           8. find how many times kabeer has read the book \n "
+              "                           9. find if kabeer has the book or not \n "
+              "                           10. exit");
         main_input = input(": ")
 
         # print(type(main_input))
